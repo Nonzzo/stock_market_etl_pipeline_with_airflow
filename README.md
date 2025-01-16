@@ -30,12 +30,11 @@ Installation
 
     Clone this repository:
 
-git clone https://github.com/yourusername/stock-market-data-pipeline.git
-cd stock-market-data-pipeline
+cd stock_market_etl_pipeline_with_airflow
 
 Build the image with the Dockerfile with the command:
 
-docker build . -- extended_airflow
+docker build . -- extended_airflow (you can change the name of the image to your liking)
 
 Start the required services using Docker Compose:
 
