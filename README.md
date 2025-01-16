@@ -3,42 +3,52 @@
 Stock Market Data Pipeline
 
 This project demonstrates a data pipeline for fetching, transforming, and loading stock market data, built using Apache Airflow. The pipeline is designed to automate the process of gathering raw stock data from an API, cleaning and transforming it, and loading the final processed data into a PostgreSQL database.
-Features
 
-    Fetches stock market data from a public API.
-    Transforms raw data to clean and enrich it with calculated metrics.
-    Loads the processed data into a PostgreSQL database for further analysis or visualization.
+##Features
 
-Technologies Used
+- Fetches stock market data from a public API.
+- Transforms raw data to clean and enrich it with calculated metrics.
+- Loads the processed data into a PostgreSQL database for further analysis or visualization.
 
-    Apache Airflow: Orchestrates the pipeline with task scheduling and monitoring.
-    Python: Implements data fetching, transformation, and loading logic.
-    PostgreSQL: Serves as the destination database for the transformed data.
-    MinIO (optional): Provides object storage for intermediate data files.
+##Technologies Used
 
-Getting Started
+- Apache Airflow: Orchestrates the pipeline with task scheduling and monitoring.
+- Python: Implements data fetching, transformation, and loading logic.
+- PostgreSQL: Serves as the destination database for the transformed data.
+- MinIO (optional): Provides object storage for intermediate data files.
+
+##Getting Started
 
 Follow these steps to set up and run the project locally.
 Prerequisites
 
-    Python 3.8+
-    Docker and Docker Compose (for Airflow and PostgreSQL setup)
-    Postgres Client like pgAdmin or DBeaver (if you like)
-    Basic knowledge of Airflow and Python scripting
+- Python 3.8+
+- Docker and Docker Compose (for Airflow and PostgreSQL setup)
+- Postgres Client like pgAdmin or DBeaver (if you like)
+- Basic knowledge of Airflow and Python scripting
 
-Installation
+##Installation
 
-    Clone this repository: https://github.com/Nonzzo/stock_market_etl_pipeline_with_airflow.git
+Clone this repository and cd into the project directory: 
+    
+```bash
+    git clone https://github.com/Nonzzo/stock_market_etl_pipeline_with_airflow.git
 
-cd stock_market_etl_pipeline_with_airflow
+    cd stock_market_etl_pipeline_with_airflow
+```
 
 Build the image with the Dockerfile with the command:
+```bash
 
-docker build . -- extended_airflow (you can change the name of the image to your liking)
+    docker build . -- extended_airflow
+```
 
 Start the required services using Docker Compose:
 
-docker-compose up -d
+```bash
+
+    docker-compose up -d
+```
 
 Pipeline Workflow
 1. Fetch Data
@@ -65,33 +75,42 @@ ALPHA_VANTAGE_API_KEY="your_stock_api_key"
 
 Airflow Connections
 
-Set up connections in Airflow for the database and API. Use the Airflow UI (Admin > Connections) to add:
+##Set up connections in Airflow for the database and API. Use the Airflow UI (Admin > Connections) to add:
 
+```bash
     'Connection id'=postgres
     'Connection Type'=Postgres
     'Host'=host.docker.internal
     'Database'=airflow
     'Login'=your_username
     'Password'=your_password
+```
     
-For your Postgres UI client (like DBeaver or pgAdmin) connection settings to check your database and tables. Create a database with the credentials as follows
+##For your Postgres UI client (like DBeaver or pgAdmin) connection settings to check your database and tables. Create a database with the credentials as follows
+
+```bash
 
     DB_HOST=localhost
     DB_PORT=5432
     Database=airflow
     DB_USER=your_username
     DB_PASSWORD=your_password
+```
 
     Postgres Connection: For loading data into the database.
     HTTP Connection: For the stock market API.
 
-Running the Pipeline
+##Running the Pipeline
+
 
     Access the Airflow web UI at http://localhost:8080.
     Enable the DAG named Stock Market Data Pipeline.
     Trigger the DAG manually or let it run on its schedule.
 
-Project Structure
+
+##Project Structure
+
+```
 
 stock-market-data-pipeline/
 │
@@ -102,11 +121,13 @@ stock-market-data-pipeline/
 ├── requirements.txt             # Python dependencies
 └── README.md                    # Project documentation
 
+```
+
 
 Please delete the stock_data.json and stock_data.csv before running your pipeline. (Just an example of some output)
 
 
-Future Enhancements
+##Future Enhancements
 
     Add MinIO integration for object storage of raw and processed data.
     Implement sensors for data availability and system health checks.
