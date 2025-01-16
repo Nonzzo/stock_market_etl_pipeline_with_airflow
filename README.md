@@ -4,20 +4,20 @@ Stock Market Data Pipeline
 
 This project demonstrates a data pipeline for fetching, transforming, and loading stock market data, built using Apache Airflow. The pipeline is designed to automate the process of gathering raw stock data from an API, cleaning and transforming it, and loading the final processed data into a PostgreSQL database.
 
-##Features
+## Features
 
 - Fetches stock market data from a public API.
 - Transforms raw data to clean and enrich it with calculated metrics.
 - Loads the processed data into a PostgreSQL database for further analysis or visualization.
 
-##Technologies Used
+## Technologies Used
 
 - Apache Airflow: Orchestrates the pipeline with task scheduling and monitoring.
 - Python: Implements data fetching, transformation, and loading logic.
 - PostgreSQL: Serves as the destination database for the transformed data.
 - MinIO (optional): Provides object storage for intermediate data files.
 
-##Getting Started
+## Getting Started
 
 Follow these steps to set up and run the project locally.
 Prerequisites
@@ -27,7 +27,7 @@ Prerequisites
 - Postgres Client like pgAdmin or DBeaver (if you like)
 - Basic knowledge of Airflow and Python scripting
 
-##Installation
+## Installation
 
 Clone this repository and cd into the project directory: 
     
@@ -75,7 +75,7 @@ ALPHA_VANTAGE_API_KEY="your_stock_api_key"
 
 Airflow Connections
 
-##Set up connections in Airflow for the database and API. Use the Airflow UI (Admin > Connections) to add:
+## Set up connections in Airflow for the database and API. Use the Airflow UI (Admin > Connections) to add:
 
 ```bash
     'Connection id'=postgres
@@ -86,7 +86,7 @@ Airflow Connections
     'Password'=your_password
 ```
     
-##For your Postgres UI client (like DBeaver or pgAdmin) connection settings to check your database and tables. Create a database with the credentials as follows
+## For your Postgres UI client (like DBeaver or pgAdmin) connection settings to check your database and tables. Create a database with the credentials as follows
 
 ```bash
 
@@ -100,7 +100,7 @@ Airflow Connections
     Postgres Connection: For loading data into the database.
     HTTP Connection: For the stock market API.
 
-##Running the Pipeline
+## Running the Pipeline
 
 
     Access the Airflow web UI at http://localhost:8080.
@@ -108,7 +108,7 @@ Airflow Connections
     Trigger the DAG manually or let it run on its schedule.
 
 
-##Project Structure
+## Project Structure
 
 ```
 
@@ -127,7 +127,7 @@ stock-market-data-pipeline/
 Please delete the stock_data.json and stock_data.csv before running your pipeline. (Just an example of some output)
 
 
-##Future Enhancements
+## Future Enhancements
 
     Add MinIO integration for object storage of raw and processed data.
     Implement sensors for data availability and system health checks.
