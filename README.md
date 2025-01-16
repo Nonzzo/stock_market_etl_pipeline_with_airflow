@@ -28,7 +28,7 @@ Prerequisites
 
 Installation
 
-    Clone this repository:
+    Clone this repository: https://github.com/Nonzzo/stock_market_etl_pipeline_with_airflow.git
 
 cd stock_market_etl_pipeline_with_airflow
 
