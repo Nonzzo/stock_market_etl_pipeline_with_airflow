@@ -40,7 +40,7 @@ Clone this repository and cd into the project directory:
 Build the image with the Dockerfile with the command:
 ```bash
 
-    docker build . -- extended_airflow
+    docker build . --tag extended_airflow
 ```
 
 Start the required services using Docker Compose:
